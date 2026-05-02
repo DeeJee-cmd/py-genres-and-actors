@@ -6,22 +6,16 @@ from db.models import Genre, Actor
 
 def main() -> QuerySet:
     genres = ["Western", "Action", "Dramma"]
-    first_names = [
-        "George", "Kianu",
-        "Scarlett", "Will",
-        "Jaden", "Scarlett",
+    actors = [
+        ("George", "Klooney"), ("Kianu", "Reaves"),
+        ("Scarlett", "Keegan"), ("Will", "Smith"),
+        ("Jaden", "Smith"), ("Scarlett", "Johansson"),
     ]
-    last_names = [
-        "Klooney", "Reaves",
-        "Keegan", "Smith",
-        "Smith", "Johansson",
-    ]
-    actors_names = zip(first_names, last_names)
 
     for genre in genres:
         Genre.objects.create(name=genre)
 
-    for first_name, last_name in actors_names:
+    for first_name, last_name in actors:
         Actor.objects.create(
             first_name=first_name,
             last_name=last_name
